@@ -1,0 +1,173 @@
+@import "../node_modules/modern-normalize/modern-normalize.css";
+
+// --------------
+// Font-face
+// --------------
+@font-face {
+  font-family: "Nitti";
+  src: url("/fonts/Nitti-Normal.woff2") format("woff2"),
+    url("../fonts/Nitti-Normal.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  // --------------
+  // Colors
+  // --------------
+  --color-gray-0: #ffffff; // white
+  --color-gray-1: #f7f7f7; // 3% black
+  --color-gray-2: #e0e0e0;
+  --color-gray-3: #cccccc;
+  --color-gray-4: #787878; // 30% black
+  --color-gray-5: #555555;
+  --color-gray-6: #333333;
+  --color-gray-7: #1a1a1a;
+  --color-gray-8: #000000; // black
+
+  --color-accent: #ffffb0;
+
+  // --------------
+  // Fonts
+  // --------------
+  --theme-font-family: "Nitti", monospace, sans-serif;
+  --theme-font-size-r: 1.4rem;
+  --theme-font-size-s: 1.2rem;
+  --theme-line-height: 1.25;
+
+  // --------------
+  // Spacing
+  // --------------
+  --spacing-lg: 8rem;
+  --spacing-md: 4rem;
+  --spacing-rg: 2rem;
+  --spacing-sm: 1rem;
+  --spacing-xs: 0.5rem;
+
+  // --------------
+  // Breakpoints
+  // --------------
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 768px;
+  --breakpoint-md: 992px;
+  --breakpoint-lg: 1200px;
+  --breakpoint-xl: 1700px;
+
+  // --------------
+  // Misc elements
+  // --------------
+
+  // General borders, text and body color
+  --border-color: var(--color-gray-4);
+  --text-color: var(--color-gray-8);
+  --body-color: var(--color-gray-0);
+
+  // Input styling
+  --input-background: var(--body-color);
+  --input-text-color: var(--color-gray-8);
+  --input-placeholder-color: var(--color-gray-4);
+  --input-background-active: var(--color-accent);
+
+  // Button styling
+  --button-background: var(--color-gray-8);
+  --button-text-color: var(--color-gray-0);
+}
+
+.dark-theme {
+  --text-color: var(--color-gray-4);
+  --body-color: var(--color-gray-8);
+  --input-background: var(--color-gray-8);
+  --input-background-active: var(--color-gray-7);
+  --input-text-color: var(--color-gray-2);
+  --button-background: var(--color-gray-2);
+  --button-text-color: var(--color-gray-8);
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  gap: var(--spacing-rg);
+  padding: var(--spacing-rg);
+  font-family: var(--theme-font-family);
+  font-size: var(--theme-font-size-r);
+  line-height: var(--theme-line-height);
+  color: var(--text-color);
+  background-color: var(--body-color);
+}
+
+ol,
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+h4{
+  font-weight: 400;
+}
+
+#app {
+  display: grid;
+  gap: var(--spacing-rg);
+
+  // > div {
+  //   max-width: 60rem;
+  // }
+}
+
+section {
+  max-width: 60rem;
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  text-transform: uppercase;
+}
+
+button.download {
+  background-color: var(--button-background);
+  color: var(--button-text-color);
+  padding: var(--spacing-sm);
+  width: fit-content;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  color: var(--color-gray-2);
+  &:hover {
+    color: var(--color-gray-4);
+    text-decoration: underline;
+  }
+}
+
+span {
+  color: var(--color-gray-2);
+}
+
+// // temp
+// #frames{
+//   max-width: none !important;
+// }
