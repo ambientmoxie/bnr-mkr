@@ -1,6 +1,6 @@
 {
-  "name": "image-editor",
-  "description": "Web tool for editing and downloading images",
+  "name": "bnr-mkr",
+  "description": "Tool for creating simple animated banners with gsap timelines and flickity carousel.",
   "private": true,
   "version": "0.0.0",
   "type": "module",
