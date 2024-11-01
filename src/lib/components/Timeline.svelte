@@ -45,7 +45,7 @@
               color:{$bannerConfig.theme.text}"
       >
         <button on:click={() => del(i)} class="remove-btn">
-          remove the frame
+          remove
         </button>
 
         <div class="frame-informations">
