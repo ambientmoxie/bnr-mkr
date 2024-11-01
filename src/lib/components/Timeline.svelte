@@ -14,16 +14,16 @@
     let label = "";
     switch (frame) {
       case "logo":
-        label = "animated logo";
+        label = "static logo";
         break;
       case "image":
-        label = "static image";
+        label = "single image";
         break;
       case "text":
         label = "simple text";
         break;
       case "carousel":
-        label = "carousel";
+        label = "flkty slider";
         break;
       case "cta":
         label = "call to action";

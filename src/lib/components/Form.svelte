@@ -71,7 +71,7 @@
     border: 1px solid var(--border-color);
     background-color: var(--input-background);
     border-radius: 0%;
-    padding: 1rem;
+    padding: var(--spacing-sm);
     color: var(--input-text-color);
     height: 4rem;
 

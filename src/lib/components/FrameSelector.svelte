@@ -1,10 +1,12 @@
 <script>
   import { bannerConfig } from "../js/stores";
   import { get } from "svelte/store";
+  import { clickOutside } from "../js/helpers";
 
   // Freeze current state of "frames"
   const defaultFrames = [...get(bannerConfig).frames];
   let input = "";
+  let options = false;
 
   function updateTimeline() {
     // If empty, we do nothing and exit.
@@ -20,21 +22,43 @@
     // ... and clean the input for the next one.
     input = "";
   }
+
+  function toggleOptionContainer() {
+    options = !options;
+  }
+
+  function selectFrame(frame) {
+    bannerConfig.update((config) => ({
+      ...config,
+      frames: [...config.frames, frame],
+    }));
+    options = false; // Close the options panel after selection
+  }
 </script>
 
 <div id="frame-selector">
   <input
-    placeholder="Choose a frame type"
-    list="frame-suggestion"
+    placeholder="Enter a frame type"
     bind:value={input}
+    on:input={updateTimeline}
   />
-  <button on:click={updateTimeline} class="submit-button">add</button>
+  <button on:click={toggleOptionContainer} class="submit-button">
+    {#if options} - {:else} + {/if}
+  </button>
 </div>
-<datalist id="frame-suggestion">
-  {#each defaultFrames as df}
-    <option>{df}</option>
-  {/each}
-</datalist>
+
+{#if options}
+  <ul id="options-panel"
+      use:clickOutside
+      on:click_outside={() => (options = false)}
+  >
+    {#each defaultFrames as df}
+      <li>
+        <button on:click={() => selectFrame(df)}>{df}</button>
+      </li>
+    {/each}
+  </ul>
+{/if}
 
 <style lang="scss">
   #frame-selector {
@@ -53,13 +77,32 @@
     background-color: transparent;
     border: 1px solid var(--border-color);
     padding: 1rem;
-    width: fit-content;
+    width: 4rem;
     padding: 0 1rem;
     height: 100%;
     &:hover {
       background-color: var(--button-background);
       border: 1px solid var(--button-background);
       color: var(--button-text-color);
+    }
+  }
+
+  #options-panel {
+    border: 1px solid var(--color-gray-4);
+    li {
+      button {
+        width: 100%;
+        text-align: left;
+        padding: var(--spacing-sm);
+        text-transform: capitalize;
+        &:hover {
+          background-color: var(--input-background-active);
+          color: var(--color-gray-2);
+        }
+      }
+      &:not(:last-child) {
+        border-bottom: 1px solid var(--color-gray-4);
+      }
     }
   }
 </style>
