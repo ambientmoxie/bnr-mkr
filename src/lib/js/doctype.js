@@ -391,7 +391,6 @@ function createCarouselCode(config, index) {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        mix-blend-mode: difference;
       }
 
       .prev-btn,
