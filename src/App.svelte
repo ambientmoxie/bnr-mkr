@@ -5,7 +5,7 @@
   import Timeline from "./lib/components/Main/Timeline.svelte";
   import { generateFavIcon } from "./lib/js/helpers";
 
-  generateFavIcon("#00e");
+  generateFavIcon("#000");
 </script>
 
 <header>
